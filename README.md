@@ -1,4 +1,4 @@
-# AdminSample-v1-Lambda-AWS
+# AdminSample-v1-Lambda-AWS (version: 0.0.1)
 
 # 배포 방법
 1. serverless framework 설치 (https://serverless.com/)
