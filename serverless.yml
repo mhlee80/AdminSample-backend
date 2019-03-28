@@ -59,12 +59,42 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  # hello:
+  #   handler: handler.hello
+  #   events:
+  #     - http:
+  #         path: ${self:provider.apiVersion}/hello
+  #         method: get
+  createProduct:
+    handler: handler.createProduct
     events:
       - http:
-          path: ${self:provider.apiVersion}/hello
+          path: ${self:provider.apiVersion}/createProduct
+          method: post
+  readProducts:
+    handler: handler.readProducts
+    events:
+      - http:
+          path: ${self:provider.apiVersion}/readProducts
           method: get
+  readProduct:
+    handler: handler.readProduct
+    events:
+      - http:
+          path: ${self:provider.apiVersion}/readProduct
+          method: get
+  updateProduct:
+    handler: handler.updateProduct
+    events:
+      - http:
+          path: ${self:provider.apiVersion}/updateProduct
+          method: patch
+  deleteProduct:
+    handler: handler.deleteProduct
+    events:
+      - http:
+          path: ${self:provider.apiVersion}/deleteProduct
+          method: delete
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
