@@ -4,3 +4,8 @@ jspm_packages
 
 # Serverless directories
 .serverless
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/AdminSample-v1-Lambda-AWS.iml
