@@ -66,31 +66,31 @@ functions:
   #         path: ${self:provider.apiVersion}/hello
   #         method: get
   createProduct:
-    handler: handler.createProduct
+    handler: src/product.createProduct
     events:
       - http:
           path: ${self:provider.apiVersion}/createProduct
           method: post
   readProducts:
-    handler: handler.readProducts
+    handler: src/product.readProducts
     events:
       - http:
           path: ${self:provider.apiVersion}/readProducts
           method: get
   readProduct:
-    handler: handler.readProduct
+    handler: src/product.readProduct
     events:
       - http:
           path: ${self:provider.apiVersion}/readProduct
           method: get
   updateProduct:
-    handler: handler.updateProduct
+    handler: src/product.updateProduct
     events:
       - http:
           path: ${self:provider.apiVersion}/updateProduct
           method: patch
   deleteProduct:
-    handler: handler.deleteProduct
+    handler: src/product.deleteProduct
     events:
       - http:
           path: ${self:provider.apiVersion}/deleteProduct

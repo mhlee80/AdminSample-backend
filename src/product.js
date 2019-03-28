@@ -19,36 +19,21 @@ const createResponse = (status, body) => ({
 });
 
 module.exports.createProduct = async (event) => {
-  return {
-    statusCode: 200,
-    body: createResponse(200, { message: 'create' }),
-  };
+  return createResponse(200, { message: 'create' });
 };
 
 module.exports.readProducts = async (event) => {
-  return {
-    statusCode: 200,
-    body: createResponse(200, { message: 'list' }),
-  };
+  return createResponse(200, { message: 'list' });
 };
 
 module.exports.readProduct = async (event) => {
-  return {
-    statusCode: 200,
-    body: createResponse(200, { message: 'read' }),
-  };
+  return createResponse(200, { message: 'read' });
 };
 
 module.exports.updateProduct = async (event) => {
-  return {
-    statusCode: 200,
-    body: createResponse(200, { message: 'update' }),
-  };
+  return createResponse(200, { message: 'update' });
 };
 
 module.exports.deleteProduct = async (event) => {
-  return {
-    statusCode: 200,
-    body: createResponse(200, { message: 'delete' }),
-  };
+  return createResponse(200, { message: 'delete' });
 };
