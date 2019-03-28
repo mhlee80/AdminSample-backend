@@ -13,13 +13,31 @@
 //   // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
 // };
 
+const mysql = require('mysql2/promise');
+
+const dbConfig = {
+    host: 'admin-sample.cxlvtkddnur7.ap-northeast-2.rds.amazonaws.com', //db ip address
+    port: 3306, //db port number
+    user: 'lambda', //db id
+    password: '12345678', //db password
+    database: 'admin_sample_db' //db schema name
+};
+
+const pool = mysql.createPool(dbConfig);
+
 const createResponse = (status, body) => ({
   statusCode: status,
   body: JSON.stringify(body)
 });
 
 module.exports.createProduct = async (event) => {
-  return createResponse(200, { message: 'create' });
+  // const res = await pool.query('select * from product');
+  // const [rows, fields] = await pool.query('select * from product');
+  const [rows] = await pool.query('select id, name, price from product');
+
+  // return createResponse(200, { message: 'create', 'res': res });
+  // return createResponse(200, { message: 'create', 'rows': JSON.stringify(rows), 'fields': JSON.stringify(fields) });
+  return createResponse(200, { message: 'create', 'rows': JSON.stringify(rows)});
 };
 
 module.exports.readProducts = async (event) => {
