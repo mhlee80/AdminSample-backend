@@ -1,4 +1,9 @@
 {
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhlee80/AdminSampleService-backend.git"
+  },
+  "license": "ISC",
   "dependencies": {
     "mysql2": "^1.6.5"
   }
