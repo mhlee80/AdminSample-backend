@@ -25,6 +25,15 @@ provider:
   region: ap-northeast-2
   apiName: ${self:service.name}-${self:provider.stage}
   apiVersion: 'v1'
+  # iamManagedPolicies:
+  #   - 'arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole'
+  #   - 'arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole'
+  vpc:
+    securityGroupIds:
+      - sg-08f735892ba51d869
+    subnetIds:
+      - subnet-026c41667e712841e
+      - subnet-0ffc42d32fdac6308
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
