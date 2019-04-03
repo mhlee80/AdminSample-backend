@@ -12,7 +12,7 @@
 # Happy Coding!
 
 service:
-  name: AdminSample # NOTE: update this with your service name
+  name: retirement-pension # NOTE: update this with your service name
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -30,10 +30,10 @@ provider:
   #   - 'arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole'
   vpc:
     securityGroupIds:
-      - sg-08f735892ba51d869
+      - sg-025d4a08cf29a3632
     subnetIds:
-      - subnet-026c41667e712841e
-      - subnet-0ffc42d32fdac6308
+      - subnet-03dcb9d70d88e1223
+      - subnet-0ab8aa8fc7aa4cbee
 # you can overwrite defaults here
 #  stage: dev
 #  region: us-east-1
@@ -80,18 +80,30 @@ functions:
       - http:
           path: ${self:provider.apiVersion}/createProduct
           method: post
+          # integration: lambda
+          # cors: true
+          # private: true
+          authorizer:
+            # name: rp--dev--user-pool--platform-admin
+            arn: arn:aws:cognito-idp:ap-northeast-2:095195140340:userpool/ap-northeast-2_zfZn9DBrc
+            # type: token
+
   readProducts:
     handler: src/product.readProducts
     events:
       - http:
           path: ${self:provider.apiVersion}/readProducts
           method: get
+          authorizer:
+            arn: arn:aws:cognito-idp:ap-northeast-2:095195140340:userpool/ap-northeast-2_kgOqq8KO3
   readProduct:
     handler: src/product.readProduct
     events:
       - http:
           path: ${self:provider.apiVersion}/readProduct
           method: get
+          authorizer:
+            arn: arn:aws:cognito-idp:ap-northeast-2:095195140340:userpool/ap-northeast-2_zfZn9DBrc
   updateProduct:
     handler: src/product.updateProduct
     events:
