@@ -33,11 +33,13 @@ const createResponse = (status, body) => ({
 module.exports.createProduct = async (event) => {
   // const res = await pool.query('select * from product');
   // const [rows, fields] = await pool.query('select * from product');
-  const [rows] = await pool.query('select id, name, price from product');
+  // const [rows] = await pool.query('select id, name, price from product');
 
   // return createResponse(200, { message: 'create', 'res': res });
   // return createResponse(200, { message: 'create', 'rows': JSON.stringify(rows), 'fields': JSON.stringify(fields) });
-  return createResponse(200, { message: 'create', 'rows': JSON.stringify(rows)});
+  // return createResponse(200, { message: 'create', 'rows': JSON.stringify(rows)});
+
+  return createResponse(200, { message: 'create', 'event': event});
 };
 
 module.exports.readProducts = async (event) => {
