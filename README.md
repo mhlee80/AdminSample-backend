@@ -1,4 +1,4 @@
-# AdminSampleService-backend, API version: 1
+# AdminSample-backend, API version: 1
 
 # 개요
 1. AWS API Gateway, AWS Lambda, AWS RDS를 연동한 RESTful API 구현
